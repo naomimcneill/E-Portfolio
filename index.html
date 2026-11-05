@@ -3,44 +3,59 @@
 <head> 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA=Compatible" content="IE=edge">
-    <meta name="viewport" content="width=devicewidth, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Naomi</title>
     <link rel="stylesheet" href="style.css">
+    <script src="index.js"></script>
     <script src="https://kit.fontawesome.com/9f6861b08e.js" crossorigin="anonymous"></script>
+    <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@5/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+    (function(){
+        emailjs.init({
+            publicKey: "sF0Aimyq5TPsKl3eH",
+        });
+    })();
+    </script>
 </head>
 <body>
  <section id="landing-page">
     <nav>
-        <figure>
+        <figure class="modal__language">
             <img class="personal-logo" src="./assets/personal-logo.jpg" alt="logo" class="nav__logo">
         </figure>
         <ul class="nav__link--list">
-            <li class="nav__link"
+            <li class="nav__link">
                 <a href="#" class="
                     nav__link effect
-                    nav__hoover-effect
-                    nav__hoover-effect--black
+                    link__hover-effect
+                    link__hover-effect--black
+                    click
                 ">About</a>
             </li>
-            <li class="nav__link"
+            <li class="nav__link">
                 <a href="#" class="
                     nav__link effect
-                    nav__hoover-effect
-                    nav__hoover-effect--black
+                    link__hover-effect
+                    link__hover-effect--black
+                    click
                 ">Projects</a>
             </li>
-            <li class="nav__link"
+            <li class="nav__link">
                 <a href="#" class="
                     nav__link effect
-                    nav__hoover-effect
-                    nav__hoover-effect--black
+                    link__hover-effect
+                    link__hover-effect--black
+                    click
                 ">Contact</a>
             </li>
-            <li class="nav__link"
+            <li class="nav__link">
                 <a href="#" class="
                     nav__link effect
-                    nav__hoover-effect
-                    nav__hoover-effect--black
+                    link__hover-effect
+                    link__hover-effect--black
+                    click
                 "><i class="fa-solid fa-circle-half-stroke"></i></a>
             </li>
         </ul>
@@ -50,26 +65,150 @@
             <h1 class="title"> Hey,</h1>
             <h1 class="title orange">I'm Naomi!</h1>
             <p class="header__para">
-                I'm a <b class="orange">Front-end Software Engineer</b> with a passion for design. I love to create user-friendly web applications that are visually appealing that provide an excellent user experience.
+                I'm a <span class="orange">Frontend Software Engineer</span> with a passion for design. I love to create web applications that are visually appealing while providing an excellent user experience.
                 <br>
-                Here is a bit more <b class="orange">About Me.</b>
+                Here is a bit more <span class="orange">about me.</span>
             </p>
             <div class="social__list">
                 <a href="https://www.linkedin.com/feed/" target="_blank" class="social__link click">
                 <i class="fa-brands fa-linkedin-in"></i>
                 </a>
-                <a href="" class="social__link click">
+                <a href="https://github.com/naomimcneill/E-Portfolio.git" target="_blank" class="social__link click">
                     <i class="fa-brands fa-github"></i>
                 </a>
                 <a href="./assets/Resume 2024 copy.pdf" target="_blank" class="social__link click">
                 <i class="fa-solid fa-file-pdf"></i>
                 </a>
-            </div>
-
-            
+            </div> 
         </div>
     </header>
+    <button class="mail__btn click">
+        <i class="fa-regular fa-envelope"></i>
+    </button>
+    <a href="#projects" class="scroll">
+        <div class="scroll__icon click"></div>
+    </a>
  </section>
+ <div class="modal">
+    <div class="modal__half modal__about">
+        <h3 class="modal__title modal__title--about">A bit about me.</h3>
+        <h4 class="modal__sub-title modal__sub-title--about">Frontend Software Engineer</h4>
+        <p class="modal__para">I'm a 42 year old American <b class="orange">frontend software engineer</b> with a strong passion for developing wesites with great <b class="orange">user experiences</b>.
+            <br>
+            I currently work on extremely diffecult engineering problems and learn from a team consisting of some of the most <b class="orange">talented</b> and <b class="orange">experienced</b> software engineers every day.
+        </p>  
+        <div class="modal__languages">
+            <figure class="modal__language">
+                <img src="./assets/HTML5.png" class="modal__icon">
+                <span class="language__name">HTML</span>
+            </figure>
+            <figure class="modal__language">
+                <img src="./assets/CSS3.png" class="modal__icon">
+                <span class="language__name">CSS</span>
+            </figure>
+            <figure class="modal__language">
+                <img src="./assets/JavaScript.png" class="modal__icon">
+                <span class="language__name">JavaScript</span>
+            </figure>
+            <figure class="modal__language">
+                <img src="./assets/React.png" class="modal__icon">
+                <span class="language__name">React</span>
+            </figure>
+        </div>  
+    </div>
+    <div class="modal__half modal__contact">
+        <h3 class="modal__title modal__title--contact">Let's have a chat!</h3>
+        <h4 class="modal__sub-title modal__sub-title--contact">I'm currently open to new opportunities</h4>
+        <form id="contact__form" onsubmit="contact(event)">
+            <div class="form__item">
+                <label class="form__item--label" for="name">Name</label>
+                <input class="input" name="user_name" type="text" required></input>
+            </div>
+            <div class="form__item">
+                <label class="form__item--label" for="email">Email</label>
+                <input class="input" name="user_name" type="text" required></input>
+            </div>
+            <div class="form__item">
+                <label class="form__item--label" for="message">Message</label>
+                <textarea class="textarea" name="user_name" type="text" required></textarea>
+            </div>
+            <button id=""contact__form" class="form__submit">Send it my way</button>
+        </form>
+        <div class="modal__overlay modal__overlay--loading">
+            <i class="fas fa-spinner"></i>
+        </div>
+        <div class="modal__overlay modal__overlay--success">
+            Thanks for the message! I'm looking forward to speaking with you!
+        </div>
+    </div> 
+    <i class="fas fa-times modal__exit click"></i>
+
+ </div>
+ <section id="projects">
+    <div class="container">
+        <div class="row">
+            <h1 class="section__title">
+                Here are some of my <span class="orange">projects</span>
+            </h1>
+            <ul class=""project__list">
+                <li class="project">
+                    <div class="project__wrapper">
+                        <img src="./assets/Treact project.png"  alt="project-1" class="project__img">
+                        <div class="project__wrapper--bg"></div>
+                        <div class="project__description">
+                            <h3 class="project__description--title">Car Sales Project</h3>
+                            <h4 class="project__description--sub-title">HTML, CSS, Javascript, Vue, Vuex</h4>
+                            <p class="project__description--para"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut temporibus quae consequatur laboriosam earum ratione? Blanditiis soluta voluptates atque ipsa iusto numquam unde repellat culpa? Numquam sint accusamus repellendus reiciendis.</p>
+                            <div class="project__description--links">
+                                <a href="#" class="project__description--link">
+                                    <i class="fa-brands fa-github"></i>
+                                    <i class="fa-solid fa-link"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+ </section>
+ <footer>
+    <div class="footer__container">
+        <div class="footer__row">
+            <figure class="footer__logo">
+                <img src="./assets/personal-logo.jpg" class="logo">
+            </figure>
+            <div class="footer__social--list">
+                <a href="#" class="
+                    footer__social--link
+                    link__hover-effect
+                    link__hover-effect--white
+                    ">Github
+                </a>
+                <a href="#" class="
+                    footer__social--link
+                    link__hover-effect
+                    link__hover-effect--white
+                    ">LinkedIn
+                </a>
+                <a href="#" class="
+                    footer__social--link
+                    link__hover-effect
+                    link__hover-effect--white
+                    ">Contact
+                </a>
+                <a href="#" class="
+                    footer__social--link
+                    link__hover-effect
+                    link__hover-effect--white
+                    ">Resume
+                </a>
+            </div>
+            <div class="footer__copyright">Copyright © Naomi McNeill</div>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
